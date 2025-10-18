@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  background-color: #008000a1;
+}
+a {
+  text-decoration: none;
+}
+.cards {
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 250px;
+  background-color: rgb(194, 203, 120);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 1px 1px 20px rgb(194, 203, 120);
+}
+.card__icon {
+  display: flex;
+  justify-content: space-between;
+}
+.card__icon .fa-solid {
+  color: #fff;
+}
+.card__shoe {
+  transition: 0.6s 0.1s;
+}
+.cards:hover .card__shoe {
+  transform: rotate(-20deg) translate(20px, -60px);
+}
+.card__shoe img {
+  position: relative;
+  left: -10px;
+  display: block;
+  margin: 0 auto;
+}
+.card__title {
+  font-weight: 700;
+  color: #008000a1;
+  text-align: center;
+  transition: 0.6s 0.1s;
+}
+.card__price {
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  transition: 0.6s 0.1s;
+}
+.cards:hover .card__title {
+  transform: translate(-40px, -30px);
+}
+.cards:hover .card__price {
+  transform: translate(-85px, -30px);
+}
+.card__info {
+  position: absolute;
+  bottom: -110px;
+  transition: 0.6s 0.1s;
+}
+.cards:hover .card__info__size,
+.cards:hover .card__info__color,
+.cards:hover .card__info__button {
+  opacity: 1;
+  transform: translate(0, -110px);
+  
+}
+.card__info__size {
+  transition: 0.6s;
+  transition-delay: 0.1s;
+  opacity: 0;
+}
+.card__info__color {
+  transition: 0.6s;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+.card__info__button {
+  transition: 0.6s;
+  transition-delay: 0.3s;
+  opacity: 0;
+}
+.card__info__size,
+.card__info__color,
+.card__info__button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.size__all {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(128, 128, 128, 0.632);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgb(128, 128, 128);
+}
+.size__all p {
+  font-size: 12px;
+  font-weight: 500;
+}
+.color__all {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.color__1 {
+  background-color: pink;
+}
+.color__2 {
+  background-color: aqua;
+}
+.color__3 {
+  background-color: purple;
+}
+.button__all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  background-color: #008000a1;
+  border-radius: 5px;
+  transition: 0.6s;
+}
+.button__all:hover {
+  transform: scale(0.9);
+}
+.button__all a {
+  color: #fff;
+  font-size: 12px;
+}
+.color,
+.size {
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
