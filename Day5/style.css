@@ -33,8 +33,10 @@ input {
   background-color: rgba(0, 0, 0, 0.688);
   padding: 0 70px 0 20px;
   font-size: 20px;
+  transition: 0.6s ease;
 }
 input:focus {
+  background-color: deeppink;
   outline: none;
 }
 .icon__search {
@@ -49,6 +51,13 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.6s ease;
+}
+.icon__search:hover {
+  color: white;
+  background-color: deeppink;
+  box-shadow: 1px 1px 10px deeppink;
+  transform: scale(0.98);
 }
 i {
   cursor: pointer;
