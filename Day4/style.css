@@ -1,0 +1,189 @@
+/* tác động css lên tất cả các phần tử có trong html */
+* {
+  /* khoảng cách giữa các phần tử = 0 */
+  margin: 0;
+  /* khoảng đệm của phần tử = 0 */
+  padding: 0;
+  /* kiểu hộp border-box không tăng kích thước khi thêm các thuộc tính padding , border */
+  box-sizing: border-box;
+}
+/* tác động css lên thẻ body thẻ cha của tất cả các thẻ trong html */
+body {
+  /* chiều rộng = 100% khung nhìn màn hình */
+  width: 100vw;
+  /* chiều cao = 100% khung nhìn màn hình */
+  height: 100vh;
+  /* trạng thái linh hoạt */
+  display: flex;
+  /* căn các phần tử con trực tiếp của body ra giữa theo trục y */
+  align-items: center;
+  /* căn các phần tử con trực tiếp của body ra giữa theo trục x  */
+  justify-content: center;
+  /* màu nền xám */
+  background-color: rgba(128, 128, 128, 0.534);
+  
+}
+/* tác dụng thẻ class .container nơi chứa các phần tử ảnh */
+.container {
+  /* khoảng đệm 2 bên trái phái 100px trên dưới = 0 */
+  padding: 0 100px;
+  /* chiều rộng của khối tối thiều 1200px khi khối này co lại đến 1200px các phần tử không co lại nữa */
+  min-width: 1200px;
+  /* trạng thái linh hoạt */
+  display: flex;
+  /* tác động lên các phần tử con nằm trong khối này 
+  - khi các phần tử con không đủ chỗ sẽ tự động xuống dòng
+  - mặc đinh là nowrap sẽ chỉ trên 1 dòng duy nhất */
+  flex-wrap: wrap;
+  /* các phần tử các đều nhau và không cách lề của khối này */
+  justify-content: space-between;
+}
+/* tác động lên phần tử con trực tiếp của class .container */
+.img__back {
+  /* 1 phần tử sẽ có chiều rộng 22% -> 4 phần tử trên 1 dòng dựa theo yêu cầu bài toán */
+  width: 22%;
+  /* chiều cao mỗi phần tử 150px */
+  height: 150px;
+  /* làm tròn viền 10px */
+  border-radius: 10px;
+  /* ẩn những phần tử con làm tràn ra khỏi phần tử cha 
+   - làm tròn viền phần tử cha làm ptu con nghe theo
+   - khi hover tăng kích thước ptu con ptu cha sẽ ẩn những phần tràn ra; */
+  overflow: hidden;
+  /* phần tử này cách phần tử dưới 20px */
+  margin-bottom: 20px;
+}
+/* hover vào thẻ img trong class .img__back */
+.img__back img:hover {
+  /* tăng kích thước ban đầu lên gấp 1.2 lần */
+  transform: scale(1.2);
+}
+/* tác động css vào thẻ img trong class .img__back */
+.img__back img {
+  /* chiều rộng 100% chiều rộng phần tử cha */
+  width: 100%;
+  /* chiều cao 100% chiều cao phần tử cha */
+  height: 100%;
+  /* để đảm bảo kích thước của ảnh trọn vẹn sẽ có cắt xén nếu cần */
+  object-fit: cover;
+  /* vị trí xuất hiện của ảnh center là giữa bức ảnh */
+  object-position: center;
+  /* khi di chuột qua tạo cảm giác click được */
+  cursor: pointer;
+  /* hiệu ứng khi bức ảnh bị scale diễn ra trong 0.6s */
+  transition: transform 0.6s;
+}
+/* tác dộng khối .img__show khối này chứa 1 bứa ảnh chạy và các nút cần thiết
+ - khối này sẽ được ẩn đi chờ sự kiện khi click vào ảnh nó sẽ hiện lên*/
+.img__show {
+  /* trạng thái linh hoạt  */
+  display: flex;
+  /* căn các phần tử con ra giữa theo trục y */
+  align-items: center;
+  /* căn các phần tử con ra giữa theo trục x */
+  justify-content: center;
+  /* kích thước khối này sẽ căn theo phần tử cha là thẻ body
+  - chiều rộng và chiều cao đều =  100% kích thước của thẻ body là toàn màn hình */
+  width: 100%;
+  height: 100%;
+  /* màu nền đen */
+  background-color: rgba(0, 0, 0, 0.547);
+  /* vị trí cố định : - không bị ảnh hưởng bởi cuộn trang (scroll)
+  - không có vị trí trong layout ; vị trí xác định = các thuộc tính top , left..
+  - không phụ thuộc vào vị trí phần tử cha */
+  position:fixed;
+  /* cách trên đầu 0 */
+  top: 0;
+  /* trạng thái trước khi có tác động event */
+  /* độ trong suốt 0 - vẫn tác động được vào phần tử thông qua js  */
+  opacity: 0;
+  /* pointer-event : kiểm soát phần tử phản hồi với các sự kiện con trỏ ví dụ như click , hover ..
+   - để xem các phần tử có được nhận các sự kiện click hay hover hay không
+   - mặc định auto các phần tử nhận sự kiện 1 cách bình thường
+   - none các phần tử không nhận bất kì sự kiện nào */
+  pointer-events: none;
+  /* hiệu ứng lúc đầu sẽ có kích thước nhỏ hơn gấp 0.98 lần */
+  transform: scale(0.98);
+  /* hiệu ứng khi phần tử thay đổi diễn ra trong 0.3s */
+  transition:0.3s;
+}
+/* trạng thái sau khi có tác động event có thêm class .active vào class .img__show */
+.active{
+  /* bỏ làm mờ */
+  opacity: 1;
+  /* sự kiện các phần tử nhận bình thường */
+  pointer-events: auto;
+  /* kích thước trở lại mặc định */
+  transform: scale(1);
+}
+/* phần tử chứa ảnh chạy */
+.show__out {
+  /* chiều rộng và cao đều = 70% kích thước phần tử cha = 70% kích thước toàn màn hình */
+  width: 70%;
+  height: 70%;
+}
+/* tác động lên thẻ img sẽ chạy bên trong thẻ trên */
+.show__out img {
+  /* chiều rộng và cao = 100% kích thước thẻ cha = 70% kích thước toàn màn hình */
+  width: 100%;
+  height: 100%;
+  /* làm cho bức ảnh giữ đúng kích thước có thể bị cắt xén */
+  object-fit: cover;
+  /* vị trí suốt hiện ảnh ban đầu ở giữa */
+  object-position: center;
+}
+/* tác động vị trí của nút bấm để chuyển ảnh */
+.button__next {
+/* vị trí cố định cho nút bấm - bị ra khỏi layout - thay đổi vị trí bằng các thuộc tính top , left
+- không bị tác động bởi vị trí phần tử cha */
+  position: fixed;
+  /* cách bên phải 5px và mặc định vị trí nút sẽ ra giữa màn hình */
+  right: 5px;
+}
+.button__prev {
+  position: fixed;
+  /* cách bên trái 5px và mặc định nút cũng ra giữa màn hình */
+  left: 5px;
+}
+/* làm đẹp cho nút bấm  */
+button {
+  /* không có viền */
+  border: 0;
+  /* khoảng đệm 20px */
+  padding: 20px;
+  /* kích thước content 20px */
+  font-size: 20px;
+  /* màu chữ trắng */
+  color: white;
+  /* màu nền đen */
+  background-color: deeppink;
+  /* làm tròn viền 50%  */
+  border-radius: 50%;
+  /* khi di chuột qua tạo cảm giác click được */
+  cursor: pointer;
+  /* hiệu ứng khi phần tử thay đổi trạng thái tử active -> disabled diễn ra 0.6s */
+  transition: 0.6s;
+}
+/* cho thẻ i có cảm giác click được */
+i {
+  cursor: pointer;
+}
+/* trạng thái khi nút bị disabled không click được nữa */
+button:disabled {
+  /* giảm độ trong suốt đi 1 nửa */
+  opacity: 0.5;
+  /* hiện ra biểu tượng cấm */
+  cursor: not-allowed;
+}
+/* thiết lập vị trí cho nút out  */
+.button__out {
+  /* vị trí cố định */
+  position: fixed;
+  /* cách trên và phải 4px */
+  top: 4px;
+  right: 4px;
+  /* kích thước content 20px */
+  font-size: 20px;
+  /* màu sắc */
+  color: deeppink;
+}
