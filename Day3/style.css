@@ -1,0 +1,157 @@
+/* chỉnh css cho tất cả các phần tử trong html bằng * */
+* {
+  /* khoảng đệm = 0 */
+  padding: 0;
+  /* khoảng cách giữa các phần tử = 0 */
+  margin: 0;
+  /* border-box khi thêm kích thước bằng các thuộc tính border , padding không làm thay đổi kích thước set ban đầu của phần tử */
+  box-sizing: border-box;
+}
+/* thêm css cho tất cả các thẻ con trong thẻ body */
+body {
+  /* chiều cao = 100% chiều cao màn hình */
+  height: 100vh;
+  /* ảnh nền chuyển màu tử trái sang phải theo màu dưới đây */
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+}
+/* chỉnh css cho khối .container */
+.container {
+  /* chiều rộng = 100% khung nhìn của màn hình */
+  width: 100vw;
+  /* chiều cao = 100% khung nhìn */
+  height: 100vh;
+  /* trạng thái linh  hoạt dễ dàng điều chỉnh các phần tử con theo trục x , y  */
+  display: flex;
+  /* đảo trục x thành trục y */
+  flex-direction: column;
+  /* căn giữa các phần tử theo trục y nay là x sau khi đảo */
+  align-items: center;
+  /* vị trí tương đối không bị mất vị trí trong layout*/
+  position: relative;
+}
+/* thêm css cho thẻ nền .space  */
+.space{
+  /* vị trí tuyệt đối mất vị trí trong layout , điều chỉnh vị trí theo phần tử cha có position : relative */
+    position: absolute;
+    /* chiều rộng = 100% chiều rộng của phần tử cha  */
+    width: 100%;
+    /* chiều cao = 100% chiều cao của phần tử cha */
+    height: 100%;
+    /* màu nền đen */
+    background-color: black;
+    /* độ trong suốt 0 - phần tử vẫn có vị trí trong layout
+    - phần tử có thể tương tác được */
+    opacity: 0;
+    /* mức độ ưu tiên -1 thấp  nhất */
+    z-index: -1;
+    /* hiệu ứng khi phần tử thay đổi trạng thái : duration 1s diễn ra trong 1s */
+    transition: 1s;
+    /* khi di chuột qua phần tử có cảm giác click được */
+    cursor: pointer;
+    
+}
+/* tác dụng css vào phần tử có class .space nếu nó nằm trong 2 class cha .container .active */
+.container.active .space{
+  /* độ trong suối 0.5 hơi làm mờ hình nền - vẫn tương tác được 
+  - vẫn có vị trí trong layout */
+   opacity:0.5;
+   /* mức độ ưu tiên trở về mặc định */
+   z-index: 1;
+   /* khi có đủ 2 class .container .active thì nền space này ảnh nền độ mờ tăng lên 0.5 và độ ưu tiên tăng lên 1 đứng trc các phần tử không có thuộc tính z-index 
+    */
+}
+/* chỉnh css cho nút bấm class .btn */
+.btn {
+  /* khoảng đệm 4 hướng 20px */
+  padding: 20px;
+  /* bỏ viền */
+  border: 0;
+  /* màu nền hồng sen */
+  background-color: deeppink;
+  /* tăng độ tròn viền 20px */
+  border-radius: 20px;
+  /* cỡ chữ 20px */
+  font-size: 20px;
+  /* màu chữ trắng */
+  color: white;
+  /* bóng đổ cho nút bấm  */
+  box-shadow: 1px 1px 10px deeppink;
+  /* khi di chuột qua phần tử tạo cảm giác click được */
+  cursor: pointer;
+  /* hiệu ứng khi phần tử này thay đổi diễn ra trong 0.6s */
+  transition: 0.6s;
+}
+/* khi click vào nút bấm  */
+.btn:active {
+  /* tăng gấp 0.88 lần kích thước ban đầu của phần tử */
+  transform: scale(0.88);
+  /* tăng độ mờ của bóng đổ 20px */
+  box-shadow: 1px 1px 20px deeppink;
+}
+
+/* thêm css cho phần thông báo khi click vào nút bấm */
+.nofi {
+  /* cách phần tử dưới 200px */
+  margin-bottom: 200px;
+  /* chiều rộng khối 400px */
+  width: 400px;
+  /* chiều cao khối 150px */
+  height: 150px;
+  /* màu nền trắng */
+  background-color: #fff;
+  /* độ tròn viền tăng 20px */
+  border-radius: 20px;
+  /* kiểm soát nội dung khi vượt ra khỏi phần tử cha : hidden nội dung bị vượt ra sẽ được ẩn đi */
+  overflow: hidden;
+  /* độ trong suốt 0 : -không hiện trên trang web  - vẫn chiếm vị trí trong layout - vẫn tương tác được */
+  opacity: 0;
+  /* hiệu ứng khi phần tử này thay đổi diễn ra 1s  */
+  transition: 1s;
+  /* vị trí tương đối - trong TH dùng để set mức độ ưu tiên hiển thị */
+  position: relative;
+}
+/* tác dụng vào class .nofi khi nó nằm trong thẻ cha có đủ 2 class .container .active */
+.container.active .nofi{
+    /* dịch chuyển phần tử hiển thị trên màn hình chứ không làm thay đổi vị trí ban đầu của phần tử đó trong layout */
+    /* translate(x, y) dịch chuyển xuống dưới theo trục y 150px trục x giữ nguyên */
+    transform: translate(0 , 150px);
+    /* độ trong suốt tăng lên 1 - lúc này phần tử trở về trạng thái mặc định */
+    opacity: 1;
+    /* mức  độ hiển thị phần tử đang cao nhất nằm trên lớp nền .space và các phần tử khác */
+    z-index: 2;
+    /* khi khối thông báo này nằm trong đủ 2 class .container và .active thì độ trong suốt trở về mặc định và cả mức ưu tiên nằm trên các phần tử khác */
+}
+/* chỉnh css cho phần tử con nằm trong khối thông báo */
+.head {
+  
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  display: flex;
+  width: 100%;
+  height: 20%;
+  background-color: rgb(230, 78, 78);
+  color: white;
+}
+i {
+  font-size: 10px;
+  cursor: pointer;
+}
+.main {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main h3 {
+  color: rgb(230, 78, 78);
+}
+.close {
+  border: 0;
+  padding: 5px;
+  background-color:rgb(230, 78, 78) ;
+  align-self: flex-end;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
