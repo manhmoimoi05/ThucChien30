@@ -1,0 +1,113 @@
+/* tác động css toàn bộ phần tử css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* tác động css cho thẻ body */
+body {
+  /* chiều cao = 100% chiều cao toàn màn hình */
+  height: 100vh;
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+  /* điều chỉnh tất cả phần tử con trong body ra giữa theo cả trục x và y */
+  display: flex;
+  /* đảo trục x và y */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* làm đẹp cho nút bấm */
+button {
+  width: 200px;
+  height: 50px;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.container {
+  /* khối container có chiều rộng 1200px chiều cao dựa trên các phần tử con */
+  width: 1200px;
+  /* căn giữa các phần tử con trong khối này */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hide {
+  /* khi có trạng thái này phần tử 
+  - không chiếm không gian trong layout 
+  - không tương tác được trên màn hình hiện thị */
+  display: none;
+}
+/* chỉnh css cho khối main__content */
+.main__content {
+  /* kích thước chiều rộng chiều cao = nhau để có thể chỉnh cho ptu tròn */
+  width: 200px;
+  height: 200px;
+  /* tạo viền cho phần tử 
+  - độ dày 5px - solid viền nhẵn - màu trắng */
+  border: 5px solid white;
+  border-radius: 50%;
+  /* căn giữa phần tử con theo cả trục x và y */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* cách phần tử dưới 50px */
+  margin-bottom: 50px;
+}
+h2 {
+  /* cỡ chữ 40px */
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+}
+/* chỉnh css cho khối card__content */
+.card__content {
+  /* chiều rộng = 100% chiều rộng của phần tử cha */
+  width: 100%;
+  display: flex;
+  /* căn các phần tử con cách  đều nhau theo trục x và sát viền */
+  justify-content: space-between;
+}
+/* chỉnh css cho 1 khối thẻ */
+.card__element {
+  /* màu chữ trắng */
+  color: white;
+  /* mỗi phần tử chiếm 22% kích thước phần tử cha */
+  width: 22%;
+  /* trạng thái linh hoạt */
+  display: flex;
+  /* đảo trục x và trục y với nhau */
+  flex-direction: column;
+  /* màu nền trắng */
+  background-color: #fff;
+  /* làm tròn viền 10px */
+  border-radius: 10px;
+  /* các phần tử con khi nó bị out ra khỏi phần tử cha đều bị ẩn đi */
+  overflow: hidden;
+}
+/* chỉnh css cho phần trên của khối thẻ */
+.card__title {
+  /* chiều rộng = 100% chiều rộng thẻ cha */
+  width: 100%;
+  /* màu nền hồng */
+  background-color: pink;
+  /* căn giữa phần nội dung trong khối này */
+  text-align: center;
+  /* tăng khoảng đệm cả 4 hướng lên 10px */
+  padding: 10px;
+}
+/* chỉnh css cho phần dưới của khối thẻ */
+.card__infor {
+  /* màu chữ đen */
+  color: black;
+  /* chiều rộng = 100% chiều rộng của phần tử cha */
+  width: 100%;
+  /* màu nền trắng */
+  background-color: white;
+  /* căn giữa phần nội dung của khối ra giữa */
+  text-align: center;
+  /* tăng khoảng đệm cả 4 hướng lên 10px */
+  padding: 10px;
+}
