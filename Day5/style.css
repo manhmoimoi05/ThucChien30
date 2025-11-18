@@ -1,70 +1,121 @@
+/* chỉnh css cho tất cả phần tử trong css */
 * {
+  /* khoảng cách các phần tử = 0 */
   margin: 0;
+  /* khoảng đệm = 0 */
   padding: 0;
+  /* kiểu khối border-box khi thêm border padding không làm thay đổi kích thước ban đầu */
   box-sizing: border-box;
 }
+/* chỉnh css cho thẻ body  */
 body {
+  /* màu chữ đen */
   color: black;
+  /* chiều cao = 100% khung nhìn màn hình */
   height: 100vh;
+  /* màu nền chuyển sắc */
   background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  /* trạng thái linh hoạt */
   display: flex;
+  /* căn các ptu con ra giữa theo trục y */
   align-items: center;
+  /* căn các ptu con ra giữa theo trục x */
   justify-content: center;
 }
+/* chỉnh css cho khối class .search__box 
+- khối này chứa 1 khối input và khối icon
+- ban đầu kích thước = khối icon sau khi có sự kiện click tăng kích thước lên hiện ra khối input */
 .search__box {
+  /* ví trị tương đối giúp cho khối icon căn vị trí */
   position: relative;
-  display: flex;
+  /* kích thước ban đầu cao và rộng 40px */
   width: 40px;
   height: 40px;
+  /* màu nền đen */
   background-color: rgba(0, 0, 0, 0.688);
+  /* làm tròn viền 10px */
   border-radius: 10px;
+  /* ẩn các phần thừa của phần tử con */
   overflow: hidden;
+  /* hiệu ứng khi kích thước tăng lên 
+  - all áp dụng cho tất cả thuộc tính
+  - 0.6s thời gian diễn ra hiệu ứng
+  - ease kiểu hiệu ứng chậm ở đầu nhanh sau */
   transition: all 0.6s ease;
 }
+/* kích thước ban đầu của khối chứa ô input = 0 */
 .input__search {
   height: 0;
   width: 0;
 }
+/* thiết kế cho ô input  */
 input {
+  /* bỏ viền */
   border: 0;
+  /* màu chữ trắng */
   color: white;
+  /* kích thước = 100% phần tử cha */
   width: 100%;
   height: 100%;
+  /* màu nền đen */
   background-color: rgba(0, 0, 0, 0.688);
+  /* tăng khoảng đệm cho thẻ input giúp đẩy phần text khi ghi nội dung
+  - trên 0 phải 70px dưới 0 trái 20px */
   padding: 0 70px 0 20px;
+  /* cỡ chữ 20px */
   font-size: 20px;
+  /* hiệu ứng khi input thay đổi màu nền */
   transition: 0.6s ease;
 }
+/* khi click vào ô để ghi text  */
 input:focus {
+  /* màu nền đổi sang hồng */
   background-color: deeppink;
+  /* bỏ viền ngoài của border */
   outline: none;
 }
+/* thiết kế cho khối icon */
 .icon__search {
   color: black;
   background-color: white;
+  /* kích thước = kích thước trước khi diễn ra sự kiện của khối search__box */
   height: 40px;
   width: 40px;
+  /* vị trí tuyệt đối căn theo thẻ cha 
+  - đè  lên phần tử cha 
+  - không chiếm vị trí trong layout nên sau khi thay đổi kích thước thẻ cha vẫn đè lên 1 phần
+   */
   position: absolute;
   top: 0;
   right: 0;
+  /* cỡ chữ 15px */
   font-size: 15px;
+  /* căn giữa thẻ icon bên trong */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* hiệu ứng khi khối này thay đổi */
   transition: all 0.6s ease;
 }
+/* khi di chuột qua khối icon */
 .icon__search:hover {
+  /* đổi màu icon và màu nền */
   color: white;
   background-color: deeppink;
+  /* đổ bóng khối */
   box-shadow: 1px 1px 10px deeppink;
+  /* thu nhỏ gấp 0.98 kích thước ban đầu */
   transform: scale(0.98);
 }
+/* khi di chuột qua tạo cảm giác có thể click */
 i {
   cursor: pointer;
 }
+/* khi diễn ra sự kiện khối search__box tăng chiều rộng 200px */
 .search__box.active {
   width: 200px;
 }
+/* khối input tăng kích thước = 100% cả khối search__box */
 .search__box.active .input__search {
   height: 100%;
   width: 100%;
