@@ -1,0 +1,133 @@
+/* chỉnh css cho tất cả phần tử html */
+* {
+  /* khoảng cách giữa các phần tử = 0 */
+  margin: 0;
+  /* khoảng đệm của phần tử = 0 */
+  padding: 0;
+  /* loại hộp border-box kh tăng kích thước hộp khi thêm khoảng đệm và viền */
+  box-sizing: border-box;
+}
+/* chỉnh css cho thẻ body */
+body {
+  /* chiều cao = 100% chiều cao màn hình */
+  height: 100vh;
+  /* màu chuyển sắc */
+  background-image: linear-gradient(to right, #decba4, #3e5151);
+  /* căn giữa theo cả trục x và y các phần tử con của thẻ body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* chỉnh css cho khối tìm kiếm */
+.search__tag {
+  /* chiều rộng của khối = 400px 
+   - lúc này không set chiều cao cố định cho khối nên chiều cao sẽ tăng theo số phần tử con có trong khối */
+  width: 400px;
+  /* màu nền trắng */
+  background-color: #fff;
+  /* làm tròn viền 10px */
+  border-radius: 10px;
+  /* tăng khoảng đệm 4 hướng 10px */
+  padding: 10px;
+}
+/* chỉnh css cho thẻ p nằm trong class .title  */
+.title p {
+  /* kích thước chữ 18px */
+  font-size: 18px;
+  /* độ dày chữ in đậm */
+  font-weight: bold;
+  /* tạo khoảng cách 20px thẻ dưới */
+  margin-bottom: 20px;
+}
+/* chỉnh css cho khối chứa thẻ input và thẻ popup */
+.input__search {
+  /* chiều rộng = 100% chiều rộng của thẻ cha */
+  width: 100%;
+  /* cách phần tử dưới 20px */
+  margin-bottom: 20px;
+  /* thêm viền cho khối này  */
+  border: 1px solid gray;
+  /* làm tròn viền 10px */
+  border-radius: 10px;
+  /* tăng khoảng đệm 5px */
+  padding: 5px;
+  /* trạng thái linh hoạt */
+  display: flex;
+  /* điều chỉnh các phần tử con trong khối này có thể xuống nếu không còn đủ kích thước trên 1 dòng */
+  flex-wrap: wrap;
+}
+/* chỉnh css cho thẻ input */
+#input__text {
+  /* tăng khoảng đệm 4 hướng 10px */
+  padding: 10px;
+  /* kích thước tối thiểu của thẻ input = 40% tổng kích thước thẻ cha */
+  /* min-width: 40%; */
+  /* bỏ viền ngoài khi focus vào thẻ input */
+  outline: none;
+  /* bỏ viền ngoài */
+  border: 0;
+  /* kích thước chữ 18px */
+  font-size: 18px;
+
+  flex-grow: 1;
+}
+/* chỉnh css cho thẻ popup */
+.pop__up {
+  padding: 10px;
+  background-color: deeppink;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  gap: 10px;
+}
+.pop__up i {
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.7;
+  transition: all 0.4s ease; 
+}
+i:hover{
+    color: black;
+    transform:scale(0.7)
+}
+/* chỉnh cho nút bấm */
+.remove__all{
+  /* tăng khoảng đệm trên dưới 10px trái phải 20px */
+    padding: 10px 20px;
+    /* bỏ viền ngoài */
+    border: 0;
+    /* bỏ viền ngoài khi focus  */
+    outline: none;
+    /* màu nền hồng sen */
+    background-color: deeppink;
+    /* làm tròn viền 5px */
+    border-radius: 5px;
+    /* màu chữ trắng */
+    color: white;
+    /* kích thước chữ 15px */
+    font-size: 15px;
+    /* khi di chuột qua nút bấm tạo cảm giác click được */
+    cursor: pointer;
+    /* hiệu ứng khi nút bấm được click
+    - all chỉnh cho tất cả thuộc tính
+    - 0.2s chạy trong 0.2s
+    - ease kiểu hiệu ứng */
+    transition: all 0.2s ease;
+    /* đổ bóng cho nút bấm 
+    - tử trái qua phải lần lượt 1px thêm kích thước bóng cho trái hoặc phải
+    - 1px thêm kích thước bóng cho trên dưới
+    - 1px độ mờ của bóng
+    - màu của bóng  */
+    box-shadow: 1px 1px 1px deeppink;
+}
+/* thêm hiệu ứng khi nút bấm được click */
+.remove__all:active{
+  /*giảm kích thước nút bấm xuống 0.9 so với kích thước ban đầu  */
+    transform: scale(0.9);
+    /* tăng độ mờ bóng lên 10px khi click */
+    box-shadow: 1px 1px 10px deeppink;
+}
