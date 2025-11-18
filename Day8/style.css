@@ -1,0 +1,151 @@
+/* chỉnh css cho tất cả phần tử html */
+* {
+  /* khoảng cách giữa các phần tử = 0 */
+  margin: 0;
+  /* khoảng đệm = 0 */
+  padding: 0;
+  /* kiểu hộp border-box kh tăng kích thước ban đầu nếu thêm padding và border */
+  box-sizing: border-box;
+}
+/* chỉnh css cho thẻ body cha của các thẻ */
+body {
+  /* chiều cao = 100% chiều cao màn hình */
+  height: 100vh;
+  /* màu chuyển sắc */
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+  /* trạng thái linh hoạt */
+  display: flex;
+  /* căn giữa các phần tử con theo cả trục x và y */
+  justify-content: center;
+  align-items: center;
+}
+/* chỉnh css cho khối box-form */
+.box__form {
+  /* chiều rộng khối cố định 360px 
+  - lúc này không set kích thước cho chiều cao nên chiều cao khối dựa theo các phần tử con trong khối  */
+  width: 360px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px gray;
+  padding: 20px;
+}
+/* chỉnh css cho thẻ h2 */
+h2 {
+  /* căn giữa phần text */
+  text-align: center;
+  /* độ dày chữ 900 */
+  font-weight: 900;
+  /* cách ptu dưới 30px */
+  margin-bottom: 30px;
+}
+/* chỉnh css cho thẻ input */
+input {
+  /* chiều rộng = 100% chiều rộng của thẻ cha */
+  width: 100%;
+  /* tăng khoảng đệm trên dưới 6px */
+  padding: 6px 0;
+  /* loại bỏ viền ngoài */
+  border: 0;
+  outline: 0;
+  /* cỡ chữ 15px */
+  font-size: 15px;
+}
+/* chỉnh css cho khối chứa thẻ input */
+.input__box {
+  /* vị trí tương đối - vẫn chiếm vị trí trong layout 
+  - làm thẻ cha căn vị trí cho thẻ con có position : absolute*/
+  position: relative;
+  /* cách phần tử dưới 25px */
+  margin-bottom: 25px;
+  /* tạo viền dưới cho khối 
+  - dày 2px - solid loại viền nhẵn - màu xám */
+  border-bottom: 2px solid rgba(128, 128, 128, 0.695);
+}
+/* tạo 1 thẻ span để thêm hiệu ứng */
+.after__border {
+  /* display block để set kích thước */
+  display: block;
+  /* chiều rộng ban đầu 0% */
+  width: 0%;
+  /* chiều cao 2px */
+  height: 2px;
+  /* màu xanh */
+  background-color: rgb(72, 167, 226);
+  /* vị trí tuyệt đối - kh chiếm vị trí trong layout
+  - căn vị trí phụ thuộc ptu cha */
+  position: absolute;
+  /* hiệu ứng khi thay đổi thuộc tính */
+  transition: all 0.4s ease;
+}
+/* dựa vào bộ chọn selector để can thiệp vào thẻ span là hàng xóm của thẻ input
+ - chọn dấu ~ : chọn tất cả các thẻ có class .after__border có phía trước là thẻ input đang được focus() */
+input:focus ~ .after__border {
+  /* khi focus vào thẻ input tác động thẻ span hàng xóm phía sau thẻ input này
+  - chiều rộng thẻ span tăng lên 100% */
+  width: 100%;
+}
+/* tạo ra 1 class error hiệu ứng sẽ được kích hoạt khi xảy ra lỗi
+-  class này được thêm vào khối input khi xảy ra lỗi */
+.input__box.error {
+  /* viền dưới sẽ đỏ */
+  border-bottom: 2px solid red;
+}
+/* khi khối input xảy ra lỗi -> khi focus vào thẻ input -> tác động thẻ có class after__border */
+.input__box.error input:focus ~ .after__border {
+  /* chiều rộng kh tăng  */
+  width: 0;
+}
+/* thẻ small : thẻ ghi chú - thẻ này sẽ là 1 đoạn text nhỏ ở phía sau phần tử  */
+small {
+  /* căn  lại vị trí thẻ small  */
+  position: absolute;
+  color: red;
+  bottom: -19px;
+  left: 0;
+}
+/* chỉnh css cho nút bấm button */
+button {
+  /* chiều rộng = 100% chiều rộng phần tử cha */
+  width: 100%;
+  /* tăng khoảng đệm trên dưới 10px trái phải 0 */
+  padding: 10px 0;
+  /* bỏ viền */
+  border: 0;
+  /* màu nền xanh */
+  background-color: rgb(72, 167, 226);
+  /* màu chữ trắng */
+  color: white;
+  /* kích thước chữ 15px */
+  font-size: 15px;
+  /* độ dày chữ 700 */
+  font-weight: 700;
+  /* làm tròn viền 20px */
+  border-radius: 20px;
+  /* cách ptu trên 10px */
+  margin-top: 10px;
+  /* cách ptu dưới 15px */
+  margin-bottom: 15px;
+  /* khi di chuột qua có cảm giác click được */
+  cursor: pointer;
+  /* hiệu ứng khi thay đổi nút */
+  transition: all 0.5s ease;
+}
+/* khi click vào nút */
+button:active {
+  /* tăng kích thước ptu lên 0.98 lần kích thước ban đầu */
+  transform: scale(0.98);
+}
+/* căn giữa khối sign__up */
+.sign__up {
+  text-align: center;
+}
+/* điều chỉnh cho thẻ a */
+a {
+  color: rgb(72, 167, 226);
+  /*text không có thuộc tính gì */
+  text-decoration: none;
+}
+a:hover {
+  /* khi hover vào thẻ a sẽ được gạch chân */
+  text-decoration: underline;
+}
